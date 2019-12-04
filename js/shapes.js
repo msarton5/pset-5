@@ -19,6 +19,7 @@ window.onload = function() {
     // equivalent set of six event listeners for your solutions. the first one is done for you.
 
     document.getElementById("hello").onclick = sayHello;
+    document.getElementById("rectangle").onclick = drawRectangle;
 }
 
 /*
@@ -26,7 +27,7 @@ window.onload = function() {
  */
 
 const sayHello = function() {
-    // write your exercise 1 code here
+    
 };
 
 /*
@@ -34,7 +35,15 @@ const sayHello = function() {
  */
 
 const drawRectangle = function() {
-    // write your exercise 2 code here
+
+    let canvas = document.getElementById("student-canvas-1");
+    let ctx = canvas.getContext("2d");
+    ctx.beginPath();
+    ctx.rect(20, 20, 100, 200);
+    ctx.stroke();
+    //max width is 1024, max height is 512
+
+    const width = Number(readlineSync.question("Width: "));
 };
 
 /*
