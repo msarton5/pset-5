@@ -1,13 +1,15 @@
 window.onload = function() {
     // add event listeners to respond to button clicks
+    let helloButton = document.getElementById("hello-button");
+    hellobutton.addEventListener("click", sayHello());
 }
- t
+
 /*
  * Exercise 1.
  */
 
 const sayHello = function() {
-
+  console.log("test");
 };
 
 /*
