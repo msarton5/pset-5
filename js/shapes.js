@@ -19,22 +19,33 @@ window.onload = function() {
     // equivalent set of six event listeners for your solutions. the first one is done for you.
 
     document.getElementById("hello").onclick = sayHello;
-    document.getElementById("rectangle").onclick = drawRectangle;
+    // document.getElementById("rectangle").onclick = drawRectangle;
+    // document.getElementById("colered-rectangle").onclick = drawColoredRectangle
+    // document.getElementById("triangle").onclick = drawTriangle;
+    // document.getElementById("smile").onclick = drawFace;
+    // document.getElementById("pyramid").onclick = drawPyramid;
 }
 
 // exercise 1
 
 const sayHello = function() {
-  var text = canvas.prompt("Message:");
+  const canvas = document.getElementById("student-canvas-1");
+  const ctx = canvas.getContext("2d");
+
+  let text = prompt("Message:");
+
+if (text === null) {
+  ctx.clearRect(0 , 0 , canvas.width , canvas.height);
+}
+
   while (text.length > 50) {
     alert("Your message is too long. Keep it under 50 characters.");
+    text = prompt("Message:");
   }
-  var canvas = document.getElementById("student-canvas-1");
-  var ctx = canvas.getContext("2d");
-  ctx.beginPath();
-  ctx.font = "48px sans-serif";
+
+  ctx.font = "48px Sans-serif";
   ctx.clearRect(0 , 0 , canvas.width , canvas.height);
-  ctx.strokeText(30 , 70 , text)
+  ctx.strokeText(text, 30 , 70, canvas.width - 30);
 
 };
 
@@ -42,12 +53,22 @@ const sayHello = function() {
 
 const drawRectangle = function() {
 
+let x = prompt("x:");
+let y = prompt("y:");
+let width = prompt("width:")
+let length = prompt("length:")
+
     let canvas = document.getElementById("student-canvas-2");
     let ctx = canvas.getContext("2d");
-    ctx.beginPath();
-    ctx.rect(20, 20, 100, 200);
-    ctx.stroke();
+
+    let text = prompt("Message:");
+
+    ctx.strokeRect(x , y , 100 , 200);
     //max width is 1024, max height is 512
+
+    if (text === null) {
+      ctx.clearRect(0 , 0 , canvas.width , canvas.height);
+    }
 
     const width = Number(readlineSync.question("Width: "));
 };
