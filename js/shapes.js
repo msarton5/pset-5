@@ -19,11 +19,11 @@ window.onload = function() {
     // equivalent set of six event listeners for your solutions. the first one is done for you.
 
     document.getElementById("hello").onclick = sayHello;
-    // document.getElementById("rectangle").onclick = drawRectangle;
-    // document.getElementById("colered-rectangle").onclick = drawColoredRectangle
-    // document.getElementById("triangle").onclick = drawTriangle;
-    // document.getElementById("smile").onclick = drawFace;
-    // document.getElementById("pyramid").onclick = drawPyramid;
+    document.getElementById("rectangle").onclick = drawRectangle;
+    document.getElementById("colered-rectangle").onclick = drawColoredRectangle
+    document.getElementById("triangle").onclick = drawTriangle;
+    document.getElementById("smile").onclick = drawFace;
+    document.getElementById("pyramid").onclick = drawPyramid;
 }
 
 // exercise 1
@@ -53,46 +53,75 @@ if (text === null) {
 
 const drawRectangle = function() {
 
-let x = prompt("x:");
-let y = prompt("y:");
-let width = prompt("width:")
-let length = prompt("length:")
-
     let canvas = document.getElementById("student-canvas-2");
     let ctx = canvas.getContext("2d");
 
-    let text = prompt("Message:");
+    let width = prompt("Width:");
+    let length = prompt("Height:");
+    let x = prompt("X:");
+    let y = prompt("Y:");
 
-    ctx.strokeRect(x , y , 100 , 200);
+    ctx.strokeRect(x , y , width , length);
     //max width is 1024, max height is 512
 
-    if (text === null) {
+    if (x === null) {
       ctx.clearRect(0 , 0 , canvas.width , canvas.height);
     }
 
-    const width = Number(readlineSync.question("Width: "));
+    if (y === null) {
+      ctx.clearRect(0 , 0 , canvas.width , canvas.height);
+    }
+
+    if (width === null) {
+      ctx.clearRect(0 , 0 , canvas.width , canvas.height);
+    }
+
+    if (length === null) {
+      ctx.clearRect(0 , 0 , canvas.width , canvas.height);
+    }
 };
 
 // exercise 3
 
 const drawColoredRectangle = function() {
-    // write your exercise 3 code here
+
+    // let canvas = document.getElementById("student-canvas-3");
+    // let ctx = canvas.getContext("2d");
+    //
+    // let color = prompt("Color:");
+    //
+    // // if (color === null) {
+    // //   ctx.clearRect(0 , 0 , canvas.width , canvas.height);
+    // // }
+    // //
+    // // if (color == "black") {
+    //     ctx.fillStyle = #000000
+    //     ctx.fillRect(10 , 10 , 100 , 50);
+    // // }
+
+
 };
 
 // exercise 4
 
 const drawTriangle = function() {
-    // write your exercise 4 code here
+    // 3:4:5 proportion rule; triangle must fit these proportions
+    // use a case loop? all needs to apply
+    let side1 = prompt("Side 1:");
+
+    if (side1 % 3 == 0 || side1 % 4 == 0 || side1 % 5 == 0 && side2 % 3 == 0 || side2 % 4 == 0 || side2 % 5 == 0 && side3 % 3 == 0 || side3 % 4 == 0 || side3 % 5 == 0) {
+      ctx.
+    }
 };
 
 // exercise 5
 
 const drawFace = function() {
-    // write your exercise 4 code here
+    // write your exercise 5 code here
 };
 
 // exercise 6
 
 const drawPyramid = function() {
-    // write your exercise 5 code here
+    // write your exercise 6 code here
 };
