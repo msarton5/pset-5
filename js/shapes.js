@@ -8,7 +8,7 @@ window.onload = function() {
 
     document.getElementById("hello").onclick = sayHello;
     document.getElementById("rectangle").onclick = drawRectangle;
-    document.getElementById("colered-rectangle").onclick = drawColoredRectangle;
+    document.getElementById("colored-rectangle").onclick = drawColoredRectangle;
     document.getElementById("triangle").onclick = drawTriangle;
     document.getElementById("smile").onclick = drawFace;
     document.getElementById("pyramid").onclick = drawPyramid;
@@ -72,52 +72,82 @@ const drawRectangle = function() {
 // exercise 3
 
 const drawColoredRectangle = function() {
-  //
-  // let canvas = document.getElementById("student-canvas-2");
-  // let ctx = canvas.getContext("2d");
-  //
-  // let color = prompt("Color:");
-  // let color = color.toLowercase
-  //
-  // switch (color) {
-  //     case "black":
-  //
-  //         break;
-  //     case blue:
-  //
-  //         break;
-  //     case green:
-  //
-  //         break;
-  //     case orange:
-  //
-  //         break;
-  //     case purple:
-  //
-  //        break;
-  //     case red:
-  //
-  //        break;
-  //     case yellow:
-  //
-  //        break;
-  //     default:
-  //        
-  //         break;
-  // }
+
+  let canvas = document.getElementById("student-canvas-3");
+  let ctx = canvas.getContext("2d");
+
+  let color = prompt("Color:");
+
+if (color != null) {
+    color = color.toLowerCase();
+}
+
+  ctx.clearRect(0 , 0 , canvas.width , canvas.height);
+
+  switch (color) {
+      case "black":
+        ctx.fillStyle = "black";
+        ctx.fillRect(10, 10, 100, 50);
+          break;
+      case "blue":
+       ctx.rect(10 , 10 , 100 , 50);
+       ctx.fillStyle = "blue";
+       ctx.fill();
+          break;
+      case "green":
+       ctx.rect(10 , 10 , 100 , 50);
+       ctx.fillStyle = "green";
+       ctx.fill();
+          break;
+      case "orange":
+       ctx.rect(10 , 10 , 100 , 50);
+       ctx.fillStyle = "orange";
+       ctx.fill();
+          break;
+      case "purple":
+       ctx.rect(10 , 10 , 100 , 50);
+       ctx.fillStyle = "purple";
+       ctx.fill();
+         break;
+      case "red":
+       ctx.rect(10 , 10 , 100 , 50);
+       ctx.fillStyle = "red";
+       ctx.fill();
+         break;
+      case "yellow":
+       ctx.rect(10 , 10 , 100 , 50);
+       ctx.fillStyle = "yellow";
+       ctx.fill();
+         break;
+      case null:
+        ctx.clearRect(0 , 0 , canvas.width , canvas.height);
+        break;
+      default:
+        alert(color + " is not a supported color.");
+        text = prompt("Color:");
+          break;
+  }
 
 };
 
 // exercise 4
 
 const drawTriangle = function() {
-    // // 3:4:5 proportion rule; triangle must fit these proportions
-    // // use a case loop? all needs to apply
-    // let side1 = prompt("Side 1:");
-    //
-    // if (side1 % 3 == 0 || side1 % 4 == 0 || side1 % 5 == 0 && side2 % 3 == 0 || side2 % 4 == 0 || side2 % 5 == 0 && side3 % 3 == 0 || side3 % 4 == 0 || side3 % 5 == 0) {
-    //   ctx.
-    //
+  let canvas = document.getElementById("student-canvas-3");
+  let ctx = canvas.getContext("2d");
+
+  let side1 = prompt("Side 1:");
+  let side2 = prompt("Side 2:");
+  let side3 = prompt("Side 3:");
+
+  if (Math.sqrt(Math.pow(side1, 2) + Math.pow(side2, 2)) != Math.sqrt(Math.pow(side3, 2))) {
+
+  }
+  // ctx.beginPath();
+  // ctx.moveTo(75,50);
+  // ctx.lineTo(100, 75);
+  // ctx.lineTo(100 , 25);
+  // ctx.fill();
 };
 
 // exercise 5
