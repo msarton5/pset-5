@@ -67,6 +67,24 @@ const drawRectangle = function() {
     if (height === null) {
       ctx.clearRect(0 , 0 , canvas.width , canvas.height);
     }
+
+    if ((width + x) > canvas.width) {
+      alert("Your width must be between 1 and 1024.");
+      ctx.clearRect(0 , 0 , canvas.width , canvas.height);
+      width = prompt("Width:");
+      height = prompt("Height:");
+      x = prompt("X:");
+      y = prompt("Y:");
+    }
+
+    if ((height + y) > canvas.height) {
+      alert("Your width must be between 1 and 1024.");
+      ctx.clearRect(0 , 0 , canvas.width , canvas.height);
+      width = prompt("Width:");
+      height = prompt("Height:");
+      x = prompt("X:");
+      y = prompt("Y:");
+    }
 };
 
 // exercise 3
@@ -133,31 +151,84 @@ if (color != null) {
 // exercise 4
 
 const drawTriangle = function() {
-  let canvas = document.getElementById("student-canvas-3");
+  let canvas = document.getElementById("student-canvas-4");
   let ctx = canvas.getContext("2d");
 
-  let side1 = prompt("Side 1:");
-  let side2 = prompt("Side 2:");
-  let side3 = prompt("Side 3:");
+  var s1 = prompt("Side 1:");
+    var s2 = prompt("Side 2:");
+    var s3 = prompt("Side 3:");
+    var height = Math.min(s1, s2, s3);
+    var hypotenuse= Math.max(s1, s2, s3) ;
+    var base = Number(s1) + Number(s2) + Number(s3) - hypotenuse- height;
 
-  if (Math.sqrt(Math.pow(side1, 2) + Math.pow(side2, 2)) != Math.sqrt(Math.pow(side3, 2))) {
 
+  if (Math.sqrt(Math.pow(height, 2) + Math.pow(base, 2)) != Math.sqrt(Math.pow(hypotenuse, 2))) {
+    alert("That's not a right triangle.");
+    height = prompt("Side 1:");
+    base = prompt("Side 2:");
+    hypotenuse = prompt("Side 3:");
+  } else if ((base + 25) > canvas.width || (height + 25) > canvas.height) {
+      alert("Your triangle won't fit on the canvas.");
+      height = prompt("Side 1:");
+      base = prompt("Side 2:");
+      hypotenuse = prompt("Side 3:");
+  } else {
+    ctx.clearRect(0 , 0 , canvas.width , canvas.height);
+    ctx.beginPath();
+    ctx.moveTo(25 , 25);
+    ctx.lineTo(25 , 25 + height);
+    ctx.lineTo(25 + base , 25 + height);
+    ctx.lineTo(25 , 25);
+    ctx.stroke();
   }
-  // ctx.beginPath();
-  // ctx.moveTo(75,50);
-  // ctx.lineTo(100, 75);
-  // ctx.lineTo(100 , 25);
-  // ctx.fill();
+
 };
 
 // exercise 5
 
 const drawFace = function() {
-    // write your exercise 5 code here
+  let canvas = document.getElementById("student-canvas-5");
+  let ctx = canvas.getContext("2d");
+
+  let radius = prompt("Radius:");
+
+  if (radius === null) {
+    ctx.clearRect(0 , 0 , canvas.width , canvas.height);
+  }
+
+  if (radius > canvas.height / 2) {
+    alert("Your smiley face won't fit on the canvas.");
+    ctx.clearRect(0 , 0 , canvas.width , canvas.height);
+    radius = prompt("Radius:");
+  } else if (radius < 32) {
+    alert("Your radius must be at least 32.");
+    ctx.clearRect(0 , 0 , canvas.width , canvas.height);
+    radius = prompt("Radius:");
+  } else if (radius.isNaN) {
+    alert("Your radius is not a number.");
+    ctx.clearRect(0 , 0 , canvas.width , canvas.height);
+    radius = prompt("Radius:");
+  }
+
+  ctx.clearRect(0 , 0 , canvas.width , canvas.height);
+  ctx.beginPath();
+    ctx.arc(canvas.width / 2 , canvas.height / 2 , radius , 0 , Math.PI * 2);
+    ctx.moveTo((canvas.width / 2 - 0.4 * radius + 0.15 * radius), (canvas.height / 2 - 0.4 * radius));
+    ctx.arc((canvas.width / 2 - 0.4 * radius), (canvas.height / 2 - 0.4 * radius) , (0.15 * radius) , 0 , Math.PI * 2);
+    ctx.moveTo((canvas.width / 2 + radius * 0.4 + radius * 0.15) , (canvas.height / 2 - 0.4 * radius));
+    ctx.arc(canvas.width / 2 + 0.4 * radius , canvas.height / 2 - 0.4 * radius, 0.15 * radius , 0 , Math.PI * 2);
+    ctx.moveTo((canvas.width / 2 + 0.7 * radius) , (canvas.height / 2));
+    ctx.arc((canvas.width / 2) , (canvas.height / 2) , (0.7 * radius) , 0 , Math.PI);
+    ctx.stroke();
+
 };
+
 
 // exercise 6
 
 const drawPyramid = function() {
-    // write your exercise 6 code here
+  let canvas = document.getElementById("student-canvas-6");
+  let ctx = canvas.getContext("2d");
+
+  let radius = prompt("Radius:");
 };
