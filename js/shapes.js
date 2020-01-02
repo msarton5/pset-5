@@ -226,7 +226,7 @@ const drawFace = function() {
 
 // exercise 6
 
-const drawPyramid = function() {
+// const drawPyramid = function() {
 //   let canvas = document.getElementById("student-canvas-6");
 //   let ctx = canvas.getContext("2d");
 
